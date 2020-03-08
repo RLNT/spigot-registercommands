@@ -1,0 +1,7 @@
+main: rlnt.registercommands.RegisterCommands
+name: RegisterCommands
+version: 1.0.0
+description: A plugin to register all your custom commands to make them valid.
+api-version: 1.13
+load: POSTWORLD
+author: RLNT

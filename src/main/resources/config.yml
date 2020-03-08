@@ -1,0 +1,16 @@
+# This config file holds all your commands you want to register
+# The format is important and all keys are necessary
+# The currently included commands are just an example, you can delete them
+#
+# Format
+# commandName:
+#   description: the description of the command
+#   usageMessage: a message how to use the command
+#
+commands:
+  helpmenu:
+    description: Opens the helpmenu
+    usageMessage: /helpmenu
+  playermenu:
+    description: Opens the player menu
+    usageMessage: /playermenu
