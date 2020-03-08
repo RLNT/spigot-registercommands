@@ -85,5 +85,5 @@ Everything related to versions and their release notes can be found in the [chan
 [Changelog]: CHANGELOG.md
 
 <!-- Images -->
-[withoutPlugin]: https://raw.githubusercontent.com/RLNT/spigot-registercommands/master/images/withoutPlugin.gif
-[withPlugin]: https://raw.githubusercontent.com/RLNT/spigot-registercommands/master/images/withPlugin.gif
+[withoutPlugin]: images/withoutPlugin.gif
+[withPlugin]: images/withPlugin.gif
