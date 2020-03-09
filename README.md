@@ -14,20 +14,18 @@ It has been tested on Spigot and Paper 1.15.2 but should also work with versions
 
 ## **Features**
 
-- register your custom commands
-- enable tab completion and valid syntax for your commands
+- register your custom commands to make them valid
+- enable tab completion and valid syntax for them
+- add a description and a usage message to each command
 
 
 ## **How it works**
-Since Minecraft version 1.13, the tab-completion feature was implemented.
+Since Minecraft 1.13+, the tab-completion was introduced. A nice feature to be able to enter commands faster and also to see which commands you are able to use.
+The problem with that is that only registered commands are counted as valid and shown in the tab-completion.
 
-Players were now able to see which options they have when entering a command. The problem is that only valid and registered commands will popup in this list.
-Many plugins don't add an own functionality for registering custom made commands yet.
+There are a lot of plugins out there that offer making your own custom commands. But what they don't have is a method to register these custom commands. They are not counted as valid and therefor they won't be shown in tab-completion and also marked red in the chat as if they would not exist.
 
-Even if you set up your commands right, Minecraft 1.13+ won't recognize them as valid. Even more annoying is version 1.15+ where a live parser was implemented into Minecraft.
-Now it even shows that commands are not registered and therefor not useable.
-
-This plugin goes through the config with your custom commands and registers them. It won't do anything else. The addon doesn't add any other functionality and won't modify your commands!
+This plugin solves that. You can define as many custom commands as you want in the config and the plugin will register them for you. It won't modify any functionality of the commands. It just helps you to make them valid!
 
 #### Without the plugin
 ![withoutPlugin]
@@ -40,11 +38,11 @@ This plugin goes through the config with your custom commands and registers them
 - go to the [releases] and download the latest release
 - stop your server
 - drop the jar file into your server's plugins folder
-- start your server and wait for the plugin's folder to be created, then open it
+- start your server and wait for the plugin's folder to be created and open it
 - open the config.yml and add all commands you want to have registered
-  - follow the format which is shown in there
+  - follow the format given in the config
   - make sure that you don't add a slash character ("`/`")
-  - provide a description and a usageMessage for each of them
+  - provide a description and a usage message for each of them
 - restart your server
   - make sure to restart, not reload
   - only restarting will register new commands
@@ -76,7 +74,7 @@ Everything related to versions and their release notes can be found in the [chan
 <!-- Links -->
 [Spigot]: https://www.spigotmc.org/
 [Discord]: https://discordapp.com/invite/Q3qxws6
-[Spigot Marketplace]: https://www.spigotmc.org/
+[Spigot Marketplace]: https://www.spigotmc.org/resources/registercommands.75791/
 [releases]: https://github.com/RLNT/spigot-registercommands/releases
 [WinRar]: https://www.win-rar.com/
 [Issues]: https://github.com/RLNT/spigot-registercommands/issues
