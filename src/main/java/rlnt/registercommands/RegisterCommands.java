@@ -1,7 +1,6 @@
 package rlnt.registercommands;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandMap;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -37,23 +36,6 @@ public final class RegisterCommands extends JavaPlugin {
     public static RegisterCommands getInstance() {
         return instance;
     }
-
-    public void log(String type, String msg) {
-        String translated = ChatColor.translateAlternateColorCodes('&', msg);
-
-        switch (type) {
-            case "info":
-                getLogger().info(translated);
-            break;
-            case "warning":
-                getLogger().warning(translated);
-            break;
-            case "severe":
-                getLogger().severe(translated);
-            break;
-        }
-    }
-
     private void configs() {
         config = new Config("config.yml",this).getConfig();
     }
