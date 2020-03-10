@@ -1,58 +1,36 @@
 package rlnt.registercommands;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandMap;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import rlnt.registercommands.utils.Command;
 import rlnt.registercommands.utils.Config;
+import rlnt.registercommands.utils.PluginLogger;
 
 import java.lang.reflect.Field;
 
 public final class RegisterCommands extends JavaPlugin {
 
-    private static RegisterCommands instance;
+    private PluginLogger logger = new PluginLogger(this);
     private YamlConfiguration config;
 
     @Override
     public void onEnable() {
-        instance = this;
-
-        log("info", "&5Plugin is loading up...");
-        log("info", "&6developed by RLNT");
-        log("info", "&fLoading configs...");
+        logger.info("&5Plugin is loading up...");
+        logger.info("&6developed by RLNT");
+        logger.info("&fLoading configs...");
         configs();
-        log("info", "&aConfig loaded!");
-        log("info", "&fRegistering commands...");
+        logger.info("&aConfig loaded!");
+        logger.info("&fRegistering commands...");
         commands();
-        log("info", "&aCommands registered!");
-        log("info", "&6DONE! :)");
+        logger.info("&aCommands registered!");
+        logger.info("&6DONE! :)");
     }
 
     @Override
     public void onDisable() {}
-
-    public static RegisterCommands getInstance() {
-        return instance;
-    }
-
-    public void log(String type, String msg) {
-        String translated = ChatColor.translateAlternateColorCodes('&', msg);
-
-        switch (type) {
-            case "info":
-                getLogger().info(translated);
-            break;
-            case "warning":
-                getLogger().warning(translated);
-            break;
-            case "severe":
-                getLogger().severe(translated);
-            break;
-        }
-    }
 
     private void configs() {
         config = new Config("config.yml",this).getConfig();
@@ -62,8 +40,8 @@ public final class RegisterCommands extends JavaPlugin {
         ConfigurationSection commands = config.getConfigurationSection("commands");
 
         if (commands == null) {
-            log("warning", "&4The commands section couldn't be found in the config!");
-            log("info", "&cNo commands were registered.");
+            logger.warning("&4The commands section couldn't be found in the config!");
+            logger.info("&cNo commands were registered.");
         } else {
             try {
                 final Field serverCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
@@ -75,23 +53,31 @@ public final class RegisterCommands extends JavaPlugin {
                     ConfigurationSection commandInfo = commands.getConfigurationSection(command);
 
                     if (commandInfo == null) {
-                        log("warning", "&4The command information of &6" + command + " &4is empty!");
-                        log("info", "&cThe command was not registered. Make sure to provide a description and a usageMessage.");
+                        logger.warning("&4The command information of &6" + command + " &4couldn't be found or is empty!");
+                        logger.info("&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
                     } else {
                         String description = commandInfo.getString("description");
                         String usageMessage = commandInfo.getString("usageMessage");
 
-                        commandMap.register(command, "rc", new Command(command, description, usageMessage));
-                        log("info", "&aThe command &6" + command + " &awas registered!");
+                        if (description == null) {
+                            logger.warning("&4The description of the command &6" + command + " &4couldn't be found or is empty!");
+                            logger.info("&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
+                        } else if (usageMessage == null) {
+                            logger.warning("&4The usage message of the command &6" + command + " &4couldn't be found or is empty!");
+                            logger.info("&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
+                        } else {
+                            commandMap.register(command, "rc", new Command(command, description, usageMessage));
+                            logger.info("&aThe command &6" + command + " &awas registered!");
+                        }
                     }
                 }
             } catch (NoSuchFieldException e) {
-                log("severe", "&4Couldn't find the command map of the server! Disabling the plugin...");
-                log("severe", e.toString());
+                logger.severe("&4Couldn't find the command map of the server! Disabling the plugin...");
+                logger.severe(e.toString());
                 this.getPluginLoader().disablePlugin(this);
             } catch (IllegalAccessException e) {
-                log("severe", "&4Couldn't access the command map of the server! Disabling the plugin...");
-                log("severe", e.toString());
+                logger.severe("&4Couldn't access the command map of the server! Disabling the plugin...");
+                logger.severe(e.toString());
                 this.getPluginLoader().disablePlugin(this);
             }
         }

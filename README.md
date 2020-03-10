@@ -31,7 +31,8 @@ This plugin solves that. You can define as many custom commands as you want in t
 ![withoutPlugin]
 
 #### With the plugin
-![withPlugin]
+![withPlugin1]<br>
+![withPlugin2]
 
 
 ## **How to use**
@@ -83,5 +84,6 @@ Everything related to versions and their release notes can be found in the [chan
 [Changelog]: CHANGELOG.md
 
 <!-- Images -->
-[withoutPlugin]: images/withoutPlugin.gif
-[withPlugin]: images/withPlugin.gif
+[withoutPlugin]: images/withoutPlugin.png
+[withPlugin1]: images/withPlugin1.png
+[withPlugin2]: images/withPlugin2.png
