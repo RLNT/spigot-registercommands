@@ -81,8 +81,16 @@ public final class RegisterCommands extends JavaPlugin {
                         String description = commandInfo.getString("description");
                         String usageMessage = commandInfo.getString("usageMessage");
 
-                        commandMap.register(command, "rc", new Command(command, description, usageMessage));
-                        log("info", "&aThe command &6" + command + " &awas registered!");
+                        if (description == null) {
+                            log("warning", "&4The description of the command &6" + command + " &4couldn't be found or is empty!");
+                            log("info", "&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
+                        } else if (usageMessage == null) {
+                            log("warning", "&4The usage message of the command &6" + command + " &4couldn't be found or is empty!");
+                            log("info", "&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
+                        } else {
+                            commandMap.register(command, "rc", new Command(command, description, usageMessage));
+                            log("info", "&aThe command &6" + command + " &awas registered!");
+                        }
                     }
                 }
             } catch (NoSuchFieldException e) {
