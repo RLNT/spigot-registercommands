@@ -33,7 +33,7 @@ public final class RegisterCommands extends JavaPlugin {
     public void onDisable() {}
 
     private void configs() {
-        config = new Config("config.yml",this).getConfig();
+        config = new Config("config.yml", this).getConfig();
     }
 
     private void commands() {
