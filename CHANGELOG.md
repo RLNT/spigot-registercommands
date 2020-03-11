@@ -11,6 +11,11 @@ The format is based on [Keep a Changelog][Keep a Changelog] and this project adh
 
 ## **[Released]**
 
+## [1.1.1] - 2020-03-11
+
+### Changed
+- custom logger handling reset color code
+
 ## [1.1.0] - 2020-03-10
 
 ### Added
@@ -30,5 +35,6 @@ The format is based on [Keep a Changelog][Keep a Changelog] and this project adh
 <!-- Versions -->
 [Unreleased]: https://github.com/RLNT/spigot-registercommands/compare/v1.0.0...HEAD
 [Released]: https://github.com/RLNT/spigot-registercommands/releases
+[1.1.1]: https://github.com/RLNT/spigot-registercommands/compare/v1.1.0..v1.1.1
 [1.1.0]: https://github.com/RLNT/spigot-registercommands/compare/v1.0.0..v1.1.0
 [1.0.0]: https://github.com/RLNT/spigot-registercommands/releases/tag/v1.0.0
