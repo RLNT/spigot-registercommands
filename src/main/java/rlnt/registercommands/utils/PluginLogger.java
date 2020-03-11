@@ -15,7 +15,7 @@ public class PluginLogger extends Logger {
 
     @Override
     public void log(LogRecord record) {
-        record.setMessage(ChatColor.translateAlternateColorCodes('&', record.getMessage())+ChatColor.RESET);
+        record.setMessage(ChatColor.translateAlternateColorCodes('&', record.getMessage()) + ChatColor.RESET);
         super.log(record);
     }
 }
