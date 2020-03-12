@@ -77,7 +77,6 @@ Everything related to versions and their release notes can be found in the [chan
 [Discord]: https://discordapp.com/invite/Q3qxws6
 [Spigot Marketplace]: https://www.spigotmc.org/resources/registercommands.75791/
 [releases]: https://github.com/RLNT/spigot-registercommands/releases
-[WinRar]: https://www.win-rar.com/
 [Issues]: https://github.com/RLNT/spigot-registercommands/issues
 [Contribution]: CONTRIBUTING.md
 [License]: LICENSE.md
