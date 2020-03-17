@@ -11,6 +11,14 @@ The format is based on [Keep a Changelog][Keep a Changelog] and this project adh
 
 ## **[Released]**
 
+## [1.2.0] - 2020-03-17
+
+### Added
+- option to toggle logging registered commands to console
+
+### Fixed
+- console spam when having a ton of commands registered by the plugin
+
 ## [1.1.1] - 2020-03-11
 
 ### Changed
@@ -35,6 +43,7 @@ The format is based on [Keep a Changelog][Keep a Changelog] and this project adh
 <!-- Versions -->
 [Unreleased]: https://github.com/RLNT/spigot-registercommands/compare/v1.0.0...HEAD
 [Released]: https://github.com/RLNT/spigot-registercommands/releases
+[1.2.0]: https://github.com/RLNT/spigot-registercommands/compare/v1.1.1..v1.2.0
 [1.1.1]: https://github.com/RLNT/spigot-registercommands/compare/v1.1.0..v1.1.1
 [1.1.0]: https://github.com/RLNT/spigot-registercommands/compare/v1.0.0..v1.1.0
 [1.0.0]: https://github.com/RLNT/spigot-registercommands/releases/tag/v1.0.0
