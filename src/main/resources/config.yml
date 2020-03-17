@@ -1,9 +1,27 @@
-# This config file holds all your commands you want to register
-# The format is important and all keys are necessary
-# The currently included commands are just an example, you can delete them
-#
+###################################################################
+#                             OPTIONS                             #
+###################################################################
+# This section holds all options for the plugin.                  #
+###################################################################
 options:
+  # LOG REGISTERED
+  #   This option defines if commands that are registered by the
+  #   plugin should be logged to the console on startup.
+  #   It can be helpful to prevent the console from being spammed
+  #   by the plugin when having a ton of commands handled.
+  #   Default: true
+  #   Note: this option is ignored when errors occur, errors are
+  #         always logged to console
   logRegistered: true
+
+###################################################################
+#                         CUSTOM COMMANDS                         #
+###################################################################
+# This section holds all your commands you want to register.      #
+# The format is important and all keys are necessary.             #
+# The currently included commands are just an example.            #
+# You can safely delete them.                                     #
+###################################################################
 # Format
 # commandName:
 #   description: the description of the command
