@@ -2,6 +2,8 @@
 # The format is important and all keys are necessary
 # The currently included commands are just an example, you can delete them
 #
+options:
+  logRegistered: true
 # Format
 # commandName:
 #   description: the description of the command
