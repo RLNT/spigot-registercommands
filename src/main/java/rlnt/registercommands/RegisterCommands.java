@@ -37,7 +37,13 @@ public final class RegisterCommands extends JavaPlugin {
     }
 
     private void commands() {
+        ConfigurationSection options = config.getConfigurationSection("options");
         ConfigurationSection commands = config.getConfigurationSection("commands");
+
+        if (options == null) {
+            logger.warning("&4The options section couldn't be found in the config or is empty!");
+            logger.info("&eMake sure that the config is up to date.");
+        }
 
         if (commands == null) {
             logger.warning("&4The commands section couldn't be found in the config!");
@@ -67,7 +73,10 @@ public final class RegisterCommands extends JavaPlugin {
                             logger.info("&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
                         } else {
                             commandMap.register(command, "rc", new Command(command, description, usageMessage));
-                            logger.info("&aThe command &6" + command + " &awas registered!");
+
+                            if (options == null || options.getBoolean("logRegistered", true)) {
+                                logger.info("&aThe command &6" + command + " &awas registered!");
+                            }
                         }
                     }
                 }
