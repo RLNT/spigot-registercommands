@@ -40,7 +40,7 @@ public final class RegisterCommands extends JavaPlugin {
         ConfigurationSection commands = config.getConfigurationSection("commands");
 
         if (commands == null) {
-            logger.warning("&4The commands section couldn't be found in the config!");
+            logger.warning("&4The commands section couldn't be found in the config or is empty!");
             logger.info("&cNo commands were registered.");
         } else {
             try {
