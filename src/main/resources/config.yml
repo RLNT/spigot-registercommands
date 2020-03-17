@@ -18,7 +18,8 @@ options:
 #                         CUSTOM COMMANDS                         #
 ###################################################################
 # This section holds all your commands you want to register.      #
-# The format is important and all keys are necessary.             #
+# The format is important. If there are optional keys, you can    #
+# simply skip them.                                               #
 # The currently included commands are just an example.            #
 # You can safely delete them.                                     #
 ###################################################################
@@ -26,11 +27,18 @@ options:
 # commandName:
 #   description: the description of the command
 #   usageMessage: a message how to use the command
+#   aliases: optional - all aliases for the command
+#
+# Aliases will be registered and valid as well. Make sure to write
+# each alias in a new line like it's done in the example.
 #
 commands:
   helpmenu:
     description: Opens the helpmenu
     usageMessage: /helpmenu
+    aliases:
+      - helpme
+      - help
   playermenu:
     description: Opens the player menu
     usageMessage: /playermenu
