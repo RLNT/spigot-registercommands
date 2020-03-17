@@ -10,6 +10,7 @@ import rlnt.registercommands.utils.Config;
 import rlnt.registercommands.utils.PluginLogger;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 public final class RegisterCommands extends JavaPlugin {
 
@@ -39,10 +40,13 @@ public final class RegisterCommands extends JavaPlugin {
     private void commands() {
         ConfigurationSection options = config.getConfigurationSection("options");
         ConfigurationSection commands = config.getConfigurationSection("commands");
+        boolean logRegistered = true;
 
         if (options == null) {
             logger.warning("&4The options section couldn't be found in the config or is empty!");
             logger.info("&eMake sure that the config is up to date.");
+        } else {
+            logRegistered = options.getBoolean("logRegistered", true);
         }
 
         if (commands == null) {
@@ -64,6 +68,7 @@ public final class RegisterCommands extends JavaPlugin {
                     } else {
                         String description = commandInfo.getString("description");
                         String usageMessage = commandInfo.getString("usageMessage");
+                        List<String> aliases = commandInfo.getStringList("aliases");
 
                         if (description == null) {
                             logger.warning("&4The description of the command &6" + command + " &4couldn't be found or is empty!");
@@ -72,10 +77,12 @@ public final class RegisterCommands extends JavaPlugin {
                             logger.warning("&4The usage message of the command &6" + command + " &4couldn't be found or is empty!");
                             logger.info("&cThe command was not registered. Make sure to provide a description and a usage message for each command in the config.");
                         } else {
-                            commandMap.register(command, "rc", new Command(command, description, usageMessage));
+                            commandMap.register(command, "rc", new Command(command, description, usageMessage, aliases));
 
-                            if (options == null || options.getBoolean("logRegistered", true)) {
+                            if (aliases.isEmpty() && logRegistered) {
                                 logger.info("&aThe command &6" + command + " &awas registered!");
+                            } else if (!aliases.isEmpty() && logRegistered) {
+                                logger.info("&aThe command &6" + command + " &awas registered with aliases: &e" + aliases + "&a!");
                             }
                         }
                     }
