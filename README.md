@@ -2,6 +2,8 @@
 
 > A [Spigot] plugin that provides the functionality to register custom commands to make them valid.
 
+[![downloads]][Spigot Marketplace]
+
 - [Discord]
 - [Spigot Marketplace]
 
@@ -83,6 +85,7 @@ Everything related to versions and their release notes can be found in the [chan
 [Changelog]: CHANGELOG.md
 
 <!-- Images -->
+[downloads]: https://pluginbadges.glitch.me/api/v1/dl/RegisterCommands-limegreen.svg?spigot=registercommands.75791&style=for-the-badge
 [withoutPlugin]: images/withoutPlugin.png
 [withPlugin1]: images/withPlugin1.png
 [withPlugin2]: images/withPlugin2.png
